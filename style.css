@@ -6,9 +6,9 @@
 	font-weight: 600;
 }
 body {
-	background-image: linear-gradient(to bottom, #2d46c560, #f8f5f5);
+	background-image: linear-gradient(to bottom, #657df46a, #f8f5f5);
 	background-repeat: no-repeat;
-	background-size: 100% 80%;
+	background-size: 100% 60%;
 	margin: 7rem;
 }
 
@@ -42,7 +42,7 @@ main {
 	margin-top: 5rem;
 }
 .generated-color {
-	border: solid 0.5px rgba(24, 24, 24, 0.678);
+	border: solid 0.5px rgba(73, 73, 73, 0.678);
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -59,7 +59,7 @@ main {
 	cursor: pointer;
 	transition: 0.2s ease-in-out;
 	margin-inline: 0.5rem;
-	border: solid 0.5px #333333ad;
+	border: solid 0.5px #5655558e;
 }
 
 .generated-color1 label {
@@ -108,8 +108,17 @@ input[type='color'] {
 
 .color-title {
 	color: #2c2a2a;
+	font-weight: 500;
+	
 }
+.color-with-title span{
+position: relative;
+bottom:5px}
 
+.color-with-title p{
+	position: relative;
+  bottom:3px;
+}
 .generated-color-palette {
 	display: flex;
 	justify-content: center;
@@ -125,19 +134,42 @@ input[type='color'] {
 .numbers {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	grid-gap: 1rem;
+	margin-top: 1rem;
 }
+.number{
+	font-weight: 400;
+display: flex;
+justify-content: center;
+}
+.title-colors{
+	display:flex;
+	justify-content: center;
+	font-weight: 400;
+	padding-bottom: 0.5rem;
+border-bottom: #2c2a2a  1px solid;
+
+    border-bottom: 1px solid;
+    border-image: radial-gradient(circle at center, #434343aa, #0000ff00) 1;
+
+}
+
 
 .colors {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	margin-top: 1rem;
 }
 
 .color {
-	width: 90px;
+	width: 91.5px;
 	height: 50px;
 	background-color: #0b1a5d;
 	margin: 1.5px;
 	border-radius: 2px;
+}
+
+.color:hover{
+	border: 2px solid #0f0d0d;
+	scale: 1.03;
 }
