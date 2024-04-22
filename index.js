@@ -20,12 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				const baseLightness = baseHSL[2] + 40
 				const lightnessStep = 75 / 10
 
-				const baseColor = {
-					hue: baseHue,
-					saturation: baseSaturation,
-					lightness: baseLightness,
-				}
-
 				colors.forEach((colorElement, index) => {
 					if (index < 12) {
 						const lightness = baseLightness - index * lightnessStep
@@ -33,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					}
 				})
 			}
+
 			const copyBtns = document.querySelectorAll('button.copy')
 			const colorInput12 = document.querySelector('input[type="color"]')
 			const colorValue12 = colorInput12.value
@@ -64,12 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				const baseSaturation_gray = baseHSL_gray[1]
 				const baseLightness_gray = baseHSL_gray[2] + 40
 				const lightnessStep_gray = 70 / 10
-
-				const baseColor_gray = {
-					hue: baseHue_gray,
-					saturation: baseSaturation_gray,
-					lightness: baseLightness_gray,
-				}
 
 				colors_gray.forEach((colorElement, index) => {
 					if (index < 12) {
@@ -135,8 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		})
 	}
+
 	gray()
 	generateColor()
+
 	function gray() {
 		document.querySelectorAll('.generated-color2 label').forEach(label => {
 			let color = '#' + '737373'
@@ -150,8 +141,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		})
 	}
-	document.addEventListener('keypress', e => {
-		generateColor()
+
+	document.addEventListener('keydown', e => {
+		if (e.code === 'Space') {
+			e.preventDefault() // Зупинка прокрутки сторінки
+			generateColor()
+		}
 	})
 
 	document.querySelectorAll('.copy').forEach(copyBtn => {
