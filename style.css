@@ -69,7 +69,7 @@ main {
 	background-color: #464852;
 }
 .generated-color3 label {
-	background-color: #d1d1de;
+	background-color: #f8f5f5;
 }
 
 .copy {
@@ -313,12 +313,11 @@ img {
 	margin-inline: -1rem;
 	padding-bottom: 0.5rem;
 }
-.radio-option:checked+.option{
-	border-color: #3a1acb ;
+.radio-option:checked + .option {
+	border-color: #2d2d2d;
 }
 .radio-option {
-  opacity: 0;
-	
+	opacity: 0;
 }
 .search-field {
 	display: flex;
@@ -352,7 +351,7 @@ img {
 	margin-top: 10px;
 	background-color: #576fdb;
 	position: relative;
-	bottom:5px;
+	bottom: 5px;
 }
 .error {
 	position: relative;
@@ -365,7 +364,7 @@ img {
 	height: 70px;
 	display: flex;
 	align-items: center;
-		padding: 1.5rem 0;
+	padding: 1.5rem 0;
 	padding-left: 1rem;
 }
 
@@ -411,12 +410,11 @@ button {
 	font-weight: 700;
 }
 
-.user-images-gray{
+.user-images-gray {
 	background-color: #464852;
 }
-.user-images-color{
+.user-images-color {
 	background-color: #576fdb;
-
 }
 
 .user-images div svg {
@@ -466,27 +464,25 @@ a {
 	text-decoration: none;
 	color: #576fdb;
 	font-weight: 500;
-
 }
 
-.text1{
-margin-top: 1rem;
-border-left: #576fdb solid 4px;
+.text1 {
+	margin-top: 1rem;
+	border-left: #576fdb solid 4px;
 	padding-left: 1.5rem;
-font-weight: 500;
-line-height: 25px;
+	font-weight: 500;
+	line-height: 25px;
 }
 
-.text2{
-color: #444343;
+.text2 {
+	color: #444343;
 	margin-top: 1rem;
 	padding-left: 1.5rem;
-border-left: #444343 solid 4px;
-font-weight: 500;
-line-height: 25px;
+	border-left: #444343 solid 4px;
+	font-weight: 500;
+	line-height: 25px;
 }
 
-.text2 a{
+.text2 a {
 	color: #000000;
 }
-

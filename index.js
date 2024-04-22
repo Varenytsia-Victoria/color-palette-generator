@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (label.parentElement.classList.contains('generated-color1')) {
 				document.body.style.backgroundImage = `linear-gradient(to bottom, ${colorValue}60, #f8f5f5)`
 
+				const signUpForm = document.querySelector('.sign-up-form')
+				signUpForm.style.background = `radial-gradient(circle 400px at left, ${colorValue}60, transparent),		radial-gradient(circle 400px at right top, ${colorValue}80, transparent),		radial-gradient(circle 400px at right bottom, ${colorValue}70, transparent)`
+
 				const colors = document.querySelectorAll('.color')
 				const baseHSL = hslFromHex(colorValue)
 				const baseHue = baseHSL[0]
@@ -28,14 +31,63 @@ document.addEventListener('DOMContentLoaded', () => {
 				})
 			}
 
-			const copyBtns = document.querySelectorAll('button.copy')
+			
+
+			const copyBtns = document.querySelectorAll('button')
 			const colorInput12 = document.querySelector('input[type="color"]')
 			const colorValue12 = colorInput12.value
+
+
+
+const radioOptions = document.querySelectorAll('.radio-option')
+
+// Функція, яка встановлює однаковий колір бордера для всіх радіокнопок
+function setBorderColorForAll(color) {
+	radioOptions.forEach(option => {
+		option.nextElementSibling.style.borderColor = color
+	})
+}
+// Додаємо обробник події для кожного радіобутону
+radioOptions.forEach(radioOption => {
+	radioOption.addEventListener('change', function () {
+		// Викликаємо функцію, щоб встановити колір бордера для всіх радіокнопок
+		setBorderColorForAll('#dedede')
+
+		// Перевіряємо, чи цей радіобутон відмічений
+		if (this.checked) {
+			// Змінюємо колір бордера на обраному елементі
+			this.nextElementSibling.style.borderColor = colorValue12
+		}
+	})
+})
+
+   
 
 			copyBtns.forEach(copyBtn => {
 				copyBtn.style.backgroundColor = colorValue12
 			})
-			console.log('Label background color updated to:', colorValue)
+
+			const userColor = document.querySelectorAll('.user-images-color')
+
+			userColor.forEach(userColor => {
+				userColor.style.backgroundColor = `${colorValue12}90`
+			})
+
+			const error = document.querySelector('.error')
+
+			error.style.backgroundColor = `${colorValue12}40`
+
+			document.querySelector('.error-text').style.color = colorValue12
+
+			const chekboxesA = document.querySelectorAll('.chekboxes a , .text1 a')
+
+			chekboxesA.forEach(chekboxesA => {
+				chekboxesA.style.color = colorValue12
+			})
+
+			// Вибираємо всі радіобутони з класом .radio-option
+
+			document.querySelector('.text1').style.borderColor = `${colorValue12}60`
 		})
 	}
 
@@ -44,8 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		colorInput.addEventListener('input', () => {
 			const colorValue = colorInput.value
-
-			console.log('New color selected for palette 2:', colorValue)
 
 			label.style.backgroundColor = colorValue
 			label.querySelector('.color-value').innerText = colorValue
@@ -67,6 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
 						colorElement.style.backgroundColor = `hsl(${baseHue_gray}, ${baseSaturation_gray}%, ${lightness_gray}%)`
 					}
 				})
+
+				const userGray = document.querySelectorAll('.user-images-gray')
+
+				userGray.forEach(userGray => {
+					userGray.style.backgroundColor = color2
+				})
+
+				const textA = document.querySelectorAll(' .text2 a')
+				textA.forEach(textA => {
+					textA.style.color = color2
+				})
+				document.querySelector('.text2').style.borderColor = `${color2}60`
 			}
 		})
 	}
@@ -130,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function gray() {
 		document.querySelectorAll('.generated-color2 label').forEach(label => {
-			let color = '#' + '737373'
+			let color = '#' + 'a3a3a3'
 
 			label.style.backgroundColor = color
 
@@ -144,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	document.addEventListener('keydown', e => {
 		if (e.code === 'Space') {
-			e.preventDefault() // Зупинка прокрутки сторінки
+			e.preventDefault()
 			generateColor()
 		}
 	})
