@@ -49,7 +49,7 @@ main {
 	height: fit-content;
 	width: fit-content;
 	border-radius: 0.3rem;
-	background-color: #f8f5f5;
+	background-color: #f8f5f595;
 }
 
 .generated-colors label {
@@ -286,6 +286,7 @@ img {
 	font-size: 15px;
 }
 
+
 .chose-line {
 	display: flex;
 	justify-content: space-between;
@@ -335,6 +336,7 @@ img {
 	border: solid 0.5px #5655558e;
 	height: 2.2rem;
 	width: 100%;
+	background-color: #ffffffac;
 }
 
 .search {
@@ -427,7 +429,12 @@ button {
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-gap: 1rem;
 }
-
+.user-images-gray:hover{
+	scale:1.07;
+}
+.user-images-color:hover{
+	scale:1.07;
+}
 .images-checkboxes {
 	display: flex;
 }
@@ -450,6 +457,7 @@ input[type='checkbox'] {
 	accent-color: #576fdb;
 	width: 20px;
 	height: 20px;
+	background-color: #fafafa71;
 }
 
 input[type='checkbox']:checked {
@@ -485,4 +493,14 @@ a {
 
 .text2 a {
 	color: #000000;
+}
+
+
+button:hover{
+	scale: 1.05;
+}
+
+.google-btn:hover{
+	scale: 1.05;
+background-color: #2c2a2a11;
 }

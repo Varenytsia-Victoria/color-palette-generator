@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+let color3 = '#f3f3f3'
+	let colorValue
+	function updateGradient(color1, color2) {
+		document.body.style.backgroundImage = `linear-gradient(to bottom, ${color1}60, ${color2})`
+	}
+
 	function updateColorPicker1(label) {
+
+		updateColorPicker3(label)
+
 		const colorInput = label.querySelector('input[type="color"]')
 
 		colorInput.addEventListener('input', () => {
@@ -9,9 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			label.style.backgroundColor = colorValue
 			label.querySelector('.color-value').innerText = colorValue
-
 			if (label.parentElement.classList.contains('generated-color1')) {
-				document.body.style.backgroundImage = `linear-gradient(to bottom, ${colorValue}60, #f8f5f5)`
+				updateGradient(colorValue, color3)
+
+								document.body.style.backgroundImage = `linear-gradient(to bottom, ${colorValue}60, 'red')`
 
 				const signUpForm = document.querySelector('.sign-up-form')
 				signUpForm.style.background = `radial-gradient(circle 400px at left, ${colorValue}60, transparent),		radial-gradient(circle 400px at right top, ${colorValue}80, transparent),		radial-gradient(circle 400px at right bottom, ${colorValue}70, transparent)`
@@ -31,37 +41,33 @@ document.addEventListener('DOMContentLoaded', () => {
 				})
 			}
 
-			
-
 			const copyBtns = document.querySelectorAll('button')
 			const colorInput12 = document.querySelector('input[type="color"]')
 			const colorValue12 = colorInput12.value
 
+			const checkbox = document.querySelectorAll('input[type="checkbox"]')
 
+			checkbox.forEach(checkbox => {
+				checkbox.style.accentColor = colorValue12
+			})
 
-const radioOptions = document.querySelectorAll('.radio-option')
+			const radioOptions = document.querySelectorAll('.radio-option')
 
-// Функція, яка встановлює однаковий колір бордера для всіх радіокнопок
-function setBorderColorForAll(color) {
-	radioOptions.forEach(option => {
-		option.nextElementSibling.style.borderColor = color
-	})
-}
-// Додаємо обробник події для кожного радіобутону
-radioOptions.forEach(radioOption => {
-	radioOption.addEventListener('change', function () {
-		// Викликаємо функцію, щоб встановити колір бордера для всіх радіокнопок
-		setBorderColorForAll('#dedede')
+			function setBorderColorForAll(color) {
+				radioOptions.forEach(option => {
+					option.nextElementSibling.style.borderColor = color
+				})
+			}
+			radioOptions.forEach(radioOption => {
+				radioOption.addEventListener('change', function () {
+					setBorderColorForAll('#dedede')
 
-		// Перевіряємо, чи цей радіобутон відмічений
-		if (this.checked) {
-			// Змінюємо колір бордера на обраному елементі
-			this.nextElementSibling.style.borderColor = colorValue12
-		}
-	})
-})
+					if (this.checked) {
+						this.nextElementSibling.style.borderColor = colorValue12
+					}
+				})
 
-   
+			})
 
 			copyBtns.forEach(copyBtn => {
 				copyBtn.style.backgroundColor = colorValue12
@@ -84,8 +90,6 @@ radioOptions.forEach(radioOption => {
 			chekboxesA.forEach(chekboxesA => {
 				chekboxesA.style.color = colorValue12
 			})
-
-			// Вибираємо всі радіобутони з класом .radio-option
 
 			document.querySelector('.text1').style.borderColor = `${colorValue12}60`
 		})
@@ -133,7 +137,30 @@ radioOptions.forEach(radioOption => {
 		})
 	}
 
+	function updateColorPicker3(label) {
+		const colorInput = label.querySelector('input[type="color"]')
+
+		colorInput.addEventListener('input', () => {
+			const colorValue = colorInput.value
+
+			label.style.backgroundColor = colorValue
+			label.querySelector('.color-value').innerText = colorValue
+
+			color3 = document.getElementById('color3').value
+
+			if (label.parentElement.classList.contains('generated-color3')) {
+				document.body.style.backgroundColor = color3
+				updateGradient(colorValue, color3)
+			}
+							updateGradient(colorValue, color3)
+
+		})
+						updateGradient(colorValue, color3)
+
+	}
 	document.querySelectorAll('.generated-colors label').forEach(label => {
+				updateColorPicker3(label)
+
 		updateColorPicker1(label)
 		updateColorPicker2(label)
 	})
@@ -174,21 +201,41 @@ radioOptions.forEach(radioOption => {
 	}
 
 	function generateColor() {
-		document.querySelectorAll('.generated-color1 label').forEach(label => {
-			let color = '#' + Math.random().toString(16).substring(2, 8)
+		document
+			.querySelectorAll('.generated-color1 label')
+			.forEach(label => {
+				let color = '#' + Math.random().toString(16).substring(2, 8)
 
-			label.style.backgroundColor = color
+				label.style.backgroundColor = color
 
-			const colorInput = label.querySelector('input[type="color"]')
-			if (colorInput) {
-				colorInput.value = color
-				colorInput.dispatchEvent(new Event('input'))
-			}
-		})
+				const colorInput = label.querySelector('input[type="color"]')
+				if (colorInput) {
+					colorInput.value = color
+					colorInput.dispatchEvent(new Event('input'))
+				}
+			})
+	}
+
+	function generateColor3() {
+		document
+			.querySelectorAll(' .generated-color3 label')
+			.forEach(label => {
+				let color = '#f3f3f3'
+
+				label.style.backgroundColor = color
+
+				const colorInput = label.querySelector('input[type="color"]')
+				if (colorInput) {
+					colorInput.value = color
+					colorInput.dispatchEvent(new Event('input'))
+				}
+			})
 	}
 
 	gray()
 	generateColor()
+generateColor3()
+
 
 	function gray() {
 		document.querySelectorAll('.generated-color2 label').forEach(label => {
@@ -203,10 +250,12 @@ radioOptions.forEach(radioOption => {
 			}
 		})
 	}
+updateGradient(colorValue, color3)
 
 	document.addEventListener('keydown', e => {
 		if (e.code === 'Space') {
 			e.preventDefault()
+updateGradient(colorValue, color3)
 			generateColor()
 		}
 	})
@@ -257,4 +306,6 @@ radioOptions.forEach(radioOption => {
 			)
 		})
 	})
+
+
 })
