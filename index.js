@@ -230,12 +230,18 @@ let color3 = '#f3f3f3'
 					colorInput.dispatchEvent(new Event('input'))
 				}
 			})
+			updateGradient(colorValue, color3)
+
 	}
 
 	gray()
-	generateColor()
-generateColor3()
+	//generateColor()
+//updateGradient(colorValue, color3)
 
+updateGradient(colorValue, color3)
+  generateColor3()
+
+generateColor()
 
 	function gray() {
 		document.querySelectorAll('.generated-color2 label').forEach(label => {
