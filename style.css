@@ -155,21 +155,41 @@ input[type='color'] {
 	border-bottom: 1px solid;
 	border-image: radial-gradient(circle at center, #434343aa, #0000ff00) 1;
 }
-
+/*
 .colors {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin-top: 1rem;
+
+	display: grid;
+grid-template-rows: repeat(12 1fr);
 }
 
 .color {
 	width: 91.5px;
+	width: 5.95vw;
 	height: 50px;
 	background-color: #0b1a5d;
 	margin: 1.5px;
 	border-radius: 2px;
 }
+*/
+.colors {
+		margin-top: 1rem;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: 0rem;
+}
+
+.color {
+	width: 5.95vw; /* розраховуємо ширину для кожного кольору, з урахуванням відступів між ними */
+	height: 50px;
+	background-color: #0b1a5d;
+	margin: 1.5px;
+	border-radius: 2px;
+}
+
 
 .color:hover {
 	border: 2px solid #0f0d0d;
